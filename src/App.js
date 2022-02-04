@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import movieData from './movieData'
+import AllMovieContainer from './AllMovieContainer'
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      allMoviesData: movieData.movies
+    }
+  }
+
+  render() {
+    return (
+      <main className='main'>
+        <nav className='nav-bar'>
+          {/* remember to add onClick event listener to button */}
+          <button className='home-button'>🍿Rancid Tomatillos</button>
+        </nav>
+        {/* <AllMovieContainer movies={this.state.allMoviesData}/> */}
+      </main>
+    )
+  }
 }
 
-export default App;
+export default App

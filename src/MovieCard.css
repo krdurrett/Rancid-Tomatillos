@@ -1,0 +1,23 @@
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 65%;
+  width: 20%;
+  border: 3px solid black;
+  padding: 20px;
+  margin: 10px;
+}
+
+.movie-img {
+   height: 90%; 
+   width: 90%;
+} 
+
+.movie-title {
+  height: 10%;
+  width: 90%;
+  font-size: 20px;
+}

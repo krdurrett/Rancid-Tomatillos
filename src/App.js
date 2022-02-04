@@ -7,7 +7,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      allMoviesData: movieData
+      allMoviesData: movieData.movies
     }
   }
 
@@ -18,7 +18,7 @@ class App extends Component {
           {/* remember to add onClick event listener to button */}
           <button className='home-button'>🍿Rancid Tomatillos</button>
         </nav>
-        <AllMovieContainer />
+        <AllMovieContainer movies={this.state.allMoviesData}/>
       </main>
     )
   }

@@ -1,9 +1,17 @@
 import React from 'react'
+import MovieCard from './MovieCard'
 import './AllMovieContainer.css'
 
-const AllMovieContainer = (props) => {
-    let allMovies = props.map(prop => {
-        return <MovieCard />
+const AllMovieContainer = ({ movies }) => {
+    let allMovies = movies.map(movie => {
+        return (
+                <MovieCard
+                    id={movie.id}
+                    key={movie.id}
+                    image={movie.poster_path}
+                    title={movie.title}
+                />
+        )
     })
 
     return (

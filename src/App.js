@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import movieData from './movieData'
+import AllMovieContainer from './AllMovieContainer'
 import './App.css'
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
           {/* remember to add onClick event listener to button */}
           <button className='home-button'>🍿Rancid Tomatillos</button>
         </nav>
+        <AllMovieContainer />
       </main>
     )
   }

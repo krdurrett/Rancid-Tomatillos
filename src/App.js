@@ -18,7 +18,7 @@ class App extends Component {
           {/* remember to add onClick event listener to button */}
           <button className='home-button'>🍿Rancid Tomatillos</button>
         </nav>
-        {/* <AllMovieContainer movies={this.state.allMoviesData}/> */}
+        <AllMovieContainer movies={this.state.allMoviesData}/>
       </main>
     )
   }

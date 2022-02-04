@@ -16,8 +16,12 @@ const AllMovieContainer = ({ movies }) => {
 
     return (
         <section className='all-movie-container'>
-            <h1>All Movies</h1>
-            {allMovies}
+            <div className='title'>
+                <h1>All Movies</h1>
+            </div>
+            <div className='movie-cards'>
+                {allMovies}
+            </div>
         </section>
     )
 }

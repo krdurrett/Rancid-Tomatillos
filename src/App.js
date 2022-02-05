@@ -9,7 +9,24 @@ class App extends Component {
     super()
     this.state = {
       allMoviesData: movieData.movies,
-      selectedMovie: {id: 1, 
+      selectedMovie: {
+        id: 0, 
+        poster_path: '',
+        backdrop_path: '',
+        release_date: '', 
+        overview: '', 
+        average_rating: 0,
+        genres: [], 
+        budget: 0, 
+        revenue: 0, 
+        runtime: 0, 
+        tagline: '' 
+      }
+    }
+  }
+
+  selectMovie = (id) => {
+    this.setState({ selectedMovie: {id: 1, 
         title: "Fake Movie Title", 
         poster_path: "https://image.tmdb.org/t/p/original//7G2VvG1lU8q758uOqU6z2Ds0qpA.jpg", 
         backdrop_path: "https://image.tmdb.org/t/p/original//oazPqs1z78LcIOFslbKtJLGlueo.jpg", 
@@ -21,7 +38,14 @@ class App extends Component {
         revenue:100853753, 
         runtime:139, 
         tagline: "It's a movie!" 
-      }
+    }})
+  }
+
+  displayMovieDetails = () => {
+    if (this.state.selectedMovie.poster_path === '') {
+      return <AllMovieContainer movies={this.state.allMoviesData} selectMovie={this.selectMovie}/>
+    } else {
+      return <MovieDetailContainer selectedDetails={this.state.selectedMovie}/>
     }
   }
 
@@ -32,8 +56,7 @@ class App extends Component {
           {/* remember to add onClick event listener to button */}
           <button className='home-button'>🍿Rancid Tomatillos</button>
         </nav>
-        <AllMovieContainer movies={this.state.allMoviesData}/>
-        {/* <MovieDetailContainer selectedDetails={this.state.selectedMovie}/> */}
+        {this.displayMovieDetails()}
       </main>
     )
   }

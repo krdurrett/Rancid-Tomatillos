@@ -1,11 +1,21 @@
-/* Need to create a className for MovieDeatilContainer */
-
-/* .all-movie-container {
+.movie-detail-container {
   padding: 20px;
-  width: 100%;
+  width: 95%;
   height: 90%;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
-} */
+  border: 2px solid red;
+}
+
+.movie-detail {
+  display: flex;
+  justify-content: center;
+  height: 90%;
+  width: 100%;
+}
+
+.title {
+  height: 10%;
+}

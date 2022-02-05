@@ -8,7 +8,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      allMoviesData: movieData.movies,
+      allMoviesData: [],
       selectedMovie: {
         id: 0, 
         poster_path: '',
@@ -23,6 +23,12 @@ class App extends Component {
         tagline: '' 
       }
     }
+  }
+
+  componentDidMount = () => {
+    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+      .then(response => response.json())
+      .then(data => this.setState({ allMoviesData: data.movies}))
   }
 
   returnHome = () => {

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import movieData from './movieData'
 import AllMovieContainer from './AllMovieContainer'
 import MovieDetailContainer from './MovieDetailContainer'
 import './App.css'
@@ -21,7 +20,8 @@ class App extends Component {
         revenue: 0, 
         runtime: 0, 
         tagline: '' 
-      }
+      }, 
+      error: false
     }
   }
 
@@ -29,6 +29,7 @@ class App extends Component {
     fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
       .then(response => response.json())
       .then(data => this.setState({ allMoviesData: data.movies}))
+      .catch(() => this.setState({ error: true}))
   }
 
   returnHome = () => {
@@ -51,6 +52,7 @@ class App extends Component {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
       .then(response => response.json())
       .then(data => this.setState({ selectedMovie: data.movie}))
+      .catch(() => this.setState({ error: true}))
   }
 
   displayMovieDetails = () => {
@@ -65,10 +67,10 @@ class App extends Component {
     return (
       <main className='main'>
         <nav className='nav-bar'>
-          {/* remember to add onClick event listener to button */}
           <button onClick={this.returnHome} className='home-button'>🍿Rancid Tomatillos</button>
         </nav>
-        {this.displayMovieDetails()}
+        {this.state.error && <h2>Sorry, there was a problem with our network</h2>}
+        {!this.state.error && this.displayMovieDetails()}
       </main>
     )
   }

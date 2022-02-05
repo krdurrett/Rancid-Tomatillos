@@ -1,5 +1,26 @@
 .movie-details-section {
-  height: 75%;
-  width: 75%;
+  height: 95%;
+  width: 50%;
   border: 3px solid purple;
+}
+
+.background-img-container {
+  width: 100%;
+  height: 50%;
+}
+
+.background-img {
+  height: 100%;
+  width: 100%;
+}
+
+.movie-details-container {
+  display: flex;
+  width: 100%;
+  height: 50%;
+}
+
+.poster-img {
+  height: 100%;
+  width: 30%;
 }

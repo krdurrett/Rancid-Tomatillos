@@ -5,6 +5,7 @@ const MovieDetail = ({ details }) => {
 
   let genres = details.genres.join(',');
   let rating = Math.round(details.average_rating * 100) / 100
+  let releaseDate = details.release_date.slice(5, 10).concat(`-${details.release_date.slice(0, 4)}`)
 
   return (
     <section className='movie-details-section'>
@@ -27,7 +28,7 @@ const MovieDetail = ({ details }) => {
           <div className='budget-div'>
             <p>Budget: ${details.budget}</p>
             <p>Total Revenue: ${details.revenue}</p>
-            <p>Release Date: {details.release_date}</p>
+            <p>Release Date: {releaseDate}</p>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 .movie-details-section {
   height: 95%;
   width: 50%;
-  border: 3px solid purple;
+  border: 3px solid black;
 }
 
 .background-img-container {
@@ -23,4 +23,9 @@
 .poster-img {
   height: 100%;
   width: 30%;
+}
+
+.movie-details {
+  display: flex;
+  flex-direction: column;
 }

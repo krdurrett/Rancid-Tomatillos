@@ -45,14 +45,23 @@ class App extends Component {
         revenue:0, 
         runtime:0, 
         tagline: '' 
-    }})
+    }, error: false})
   }
 
   selectMovie = (id) => {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
-      .then(response => response.json())
-      .then(data => this.setState({ selectedMovie: data.movie}))
-      .catch(() => this.setState({ error: true}))
+      .then(response => this.handleResponse(response))    
+  }
+
+  handleResponse = response => {
+    if (!response.ok) {
+      this.setState({ error: true})
+    } else {
+      Promise.resolve(response)
+        .then(response => response.json())
+        .then(data => this.setState({ selectedMovie: data.movie}))
+        .catch(() => this.setState({ error: true}))
+    }
   }
 
   displayMovieDetails = () => {

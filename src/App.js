@@ -52,6 +52,7 @@ class App extends Component {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
       .then(response => response.json())
       .then(data => this.setState({ selectedMovie: data.movie}))
+      .catch(() => this.setState({ error: true}))
   }
 
   displayMovieDetails = () => {

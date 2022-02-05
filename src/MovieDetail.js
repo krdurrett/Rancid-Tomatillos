@@ -13,16 +13,20 @@ const MovieDetail = ({ details }) => {
       <div className='movie-details-container'>
         <img className='poster-img' src={details.poster_path} />
         <div className='movie-details'>
-          <h2 className='movie-title'>{details.title} Rating:{details.average_rating} Runtime:{details.runtime}</h2>
-          <div>
+          <div className='movie-title-div'>
+            <h3>{details.title}</h3>   
+            <h3>Rating: {details.average_rating}</h3>
+            <h3>Runtime: {details.runtime} minutes</h3>
+          </div>
+          <div className='overview-div'>
             <p>{details.tagline}</p>
             <p>{details.overview}</p>
-            <p>{genres}</p>
+            <p>Genres: {genres}</p>
           </div>
-          <div>
-            <p>{details.budget}</p>
-            <p>{details.revenue}</p>
-            <p>{details.release_date}</p>
+          <div className='budget-div'>
+            <p>Budget: ${details.budget}</p>
+            <p>Total Revenue: ${details.revenue}</p>
+            <p>Release Date: {details.release_date}</p>
           </div>
         </div>
       </div>

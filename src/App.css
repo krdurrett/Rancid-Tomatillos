@@ -20,3 +20,13 @@
   cursor: pointer;
   border: none;
 }
+
+.home-button:hover {
+  font-size: 30px;
+  font-weight: 900;
+  color: red;
+  margin-left: 20px;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}

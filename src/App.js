@@ -25,6 +25,22 @@ class App extends Component {
     }
   }
 
+  returnHome = () => {
+    this.setState({ selectedMovie: {id: 0, 
+        title: '', 
+        poster_path: '', 
+        backdrop_path: '', 
+        release_date: '', 
+        overview: '', 
+        average_rating: 0,
+        genres: [], 
+        budget:0, 
+        revenue:0, 
+        runtime:0, 
+        tagline: '' 
+    }})
+  }
+
   selectMovie = (id) => {
     this.setState({ selectedMovie: {id: 1, 
         title: "Fake Movie Title", 
@@ -54,7 +70,7 @@ class App extends Component {
       <main className='main'>
         <nav className='nav-bar'>
           {/* remember to add onClick event listener to button */}
-          <button className='home-button'>🍿Rancid Tomatillos</button>
+          <button onClick={this.returnHome} className='home-button'>🍿Rancid Tomatillos</button>
         </nav>
         {this.displayMovieDetails()}
       </main>

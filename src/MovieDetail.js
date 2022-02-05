@@ -4,7 +4,8 @@ import './MovieDetail.css'
 const MovieDetail = ({ details }) => {
 
   let genres = details.genres.join(',');
-  
+  let rating = Math.round(details.average_rating * 100) / 100
+
   return (
     <section className='movie-details-section'>
       <div className='background-img-container'>
@@ -15,7 +16,7 @@ const MovieDetail = ({ details }) => {
         <div className='movie-details'>
           <div className='movie-title-div'>
             <h3>{details.title}</h3>   
-            <h3>Rating: {details.average_rating}</h3>
+            <h3>Rating: {rating}</h3>
             <h3>Runtime: {details.runtime} minutes</h3>
           </div>
           <div className='overview-div'>

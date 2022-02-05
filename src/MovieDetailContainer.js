@@ -3,7 +3,6 @@ import MovieDetail from './MovieDetail'
 import './MovieDetailContainer.css'
 
 const MovieDetailContainer = ({ selectedDetails }) => {
-  console.log('selectedDetails passed',selectedDetails);
   return (
     <section className='movie-detail-container'>
       <div className='title'>

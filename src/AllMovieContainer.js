@@ -10,7 +10,7 @@ const AllMovieContainer = ({ movies, selectMovie }) => {
                     key={movie.id}
                     image={movie.poster_path}
                     title={movie.title}
-                    selectMovie={selectMovie}
+                    // selectMovie={selectMovie}
                 />
         )
     })

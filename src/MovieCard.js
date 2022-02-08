@@ -1,12 +1,18 @@
 import React from 'react'
 import './MovieCard.css'
+import {NavLink} from 'react-router-dom'
 
-const MovieCard = ({ id, image, title, selectMovie}) => {
+const MovieCard = ({ id, image, title}) => {
     return (
-      <section onClick={() => selectMovie(id)}className='movie-card'>
+    //     <section onClick={() => selectMovie(id)}className='movie-card'>
+    //     <img className='movie-img' src={image}/>
+    //     <h2 className='movie-title'>{title}</h2>
+    // </section>
+
+        <NavLink to={`/${id}`} className='movie-card'>
           <img className='movie-img' src={image}/>
           <h2 className='movie-title'>{title}</h2>
-      </section>  
+        </NavLink>
     )
 }
 

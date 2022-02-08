@@ -10,6 +10,7 @@
   padding: 20px;
   margin: 10px;
   box-shadow: 5px 5px black;
+  text-decoration: none;
 }
 
 .movie-card:hover {
@@ -24,6 +25,7 @@
   padding: 20px;
   margin: 10px;
   box-shadow: 5px 5px black;
+  text-decoration: none;
 }
 
 .movie-card:hover .movie-title {

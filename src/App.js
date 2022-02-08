@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import AllMovieContainer from './AllMovieContainer'
 import MovieDetailContainer from './MovieDetailContainer'
+import { NavLink, Route, Link } from 'react-router-dom'
 import './App.css'
 
 class App extends Component {
@@ -76,10 +77,18 @@ class App extends Component {
     return (
       <main className='main'>
         <nav className='nav-bar'>
-          <button onClick={this.returnHome} className='home-button'>🍿Rancid Tomatillos</button>
+          {/* <button onClick={this.returnHome} className='home-button'>🍿Rancid Tomatillos</button> */}
+          <Link to='/' className='home-button'>🍿Rancid Tomatillos</Link>
         </nav>
-        {this.state.error && <h2>Sorry, there was a problem with our network</h2>}
-        {!this.state.error && this.displayMovieDetails()}
+        {/* {this.state.error && <h2>Sorry, there was a problem with our network</h2>}
+        {!this.state.error && this.displayMovieDetails()} */}
+        <Route exact path='/' render={() => <AllMovieContainer movies={this.state.allMoviesData}/>} />
+        <Route exact path='/:id' render={({ match }) => 
+          {const movieId = match.params.id
+            fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${movieId}`)
+              .then(response => this.handleResponse(response)) 
+          return <MovieDetailContainer selectedDetails={this.state.selectedMovie}/>
+        }}/>
       </main>
     )
   }

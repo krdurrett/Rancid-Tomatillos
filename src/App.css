@@ -19,6 +19,7 @@
   background-color: transparent;
   cursor: pointer;
   border: none;
+  text-decoration: none;
 }
 
 .home-button:hover {

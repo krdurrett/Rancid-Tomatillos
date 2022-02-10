@@ -20,7 +20,8 @@ class MovieDetailContainer extends Component {
         runtime: 0, 
         tagline: '' 
       }, 
-      error: false
+      error: false,
+      isLoading: true
     }
   }
 
@@ -35,13 +36,13 @@ class MovieDetailContainer extends Component {
     } else {
       Promise.resolve(response)
         .then(response => response.json())
-        .then(data => this.setState({ selectedMovie: data.movie}))
+        .then(data => this.setState({ selectedMovie: data.movie, isLoading: false}))
         .catch(() => this.setState({ error: true}))
     }
   }
 
   render() {
-    if (!this.state.error) {
+    if (!this.state.error && !this.state.isLoading) {
       return (
         <section className='movie-detail-container'>
           <div className='title'>
@@ -52,11 +53,17 @@ class MovieDetailContainer extends Component {
           </div>
         </section>
       )
-    } else {
-      return ( 
-        <h2>Sorry, there was a problem with our network</h2>
+    }
+    if (this.state.isLoading) {
+      return (
+        <h2>Loading...</h2>
       )
     }
+    if (this.state.error) {
+      return ( 
+          <h2>Sorry, there was a problem with our network</h2>
+        )
+    }  
   }
 }  
 

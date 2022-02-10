@@ -59,16 +59,6 @@ class MovieDetailContainer extends Component {
     }
   }
 }  
-  // return (
-  //   <section className='movie-detail-container'>
-  //     <div className='title'>
-  //       <h1>Selected movie</h1>
-  //     </div>
-  //     <div className='movie-detail'>
-  //       <MovieDetail details={selectedDetails}/>
-  //     </div>
-  //   </section>
-  // )
 
 
 export default MovieDetailContainer

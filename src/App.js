@@ -9,19 +9,6 @@ class App extends Component {
     super()
     this.state = {
       allMoviesData: [],
-      // selectedMovie: {
-      //   id: 0, 
-      //   poster_path: '',
-      //   backdrop_path: '',
-      //   release_date: '', 
-      //   overview: '', 
-      //   average_rating: 0,
-      //   genres: [], 
-      //   budget: 0, 
-      //   revenue: 0, 
-      //   runtime: 0, 
-      //   tagline: '' 
-      // }, 
       error: false,
     }
   }
@@ -32,24 +19,6 @@ class App extends Component {
       .then(data => this.setState({ allMoviesData: data.movies, error: false}))
       .catch(() => this.setState({ error: true}))
   }
-
-  // handleResponse = response => {
-  //   if (!response.ok) {
-  //     this.setState({ error: true})
-  //   } else {
-  //     Promise.resolve(response)
-  //       .then(response => response.json())
-  //       .then(data => this.setState({ selectedMovie: data.movie}))
-  //       .catch(() => this.setState({ error: true}))
-  //   }
-  // }
-
-  // componentDidUpdate = () => {
-  //   if (this.state.selectedMovie.poster_path === '') {
-  //     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${movieId}`)
-  //       .then(response => this.handleResponse(response))
-  //   }   
-  // }
 
   render() {
     return (

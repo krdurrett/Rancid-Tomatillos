@@ -15,9 +15,10 @@ describe('Rancid tomatillo main page load', () => {
             "release_date": "2020-07-02"
             }
       })
-      .wait(500)
+      .wait(1500)
       .get('.movie-cards').click(100, 20)
         .get('.movie-detail-container')
           .contains('Selected movie')
-  })
+      .url().should('include', '/694919')
+  });
 });

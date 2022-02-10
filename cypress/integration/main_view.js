@@ -12,5 +12,6 @@ describe('Rancid tomatillo main page load', () => {
       .get('section')
         .find('img')
         .should('have.attr', 'src').should('include', "https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg")
+      .url().should('include', '/')
   });
 });

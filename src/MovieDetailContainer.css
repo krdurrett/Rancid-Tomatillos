@@ -16,5 +16,9 @@
 }
 
 .title {
-  height: 10%;
+  height: 5%;
+}
+
+h1 {
+  margin: 0;
 }

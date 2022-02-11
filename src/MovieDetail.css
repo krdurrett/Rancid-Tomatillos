@@ -7,7 +7,15 @@
 
 .background-img-container {
   width: 100%;
-  height: 50%;
+  height: 60%;
+  border: 2px solid red;
+}
+
+.player {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border: 2px solid blue;
 }
 
 .background-img {
@@ -18,19 +26,19 @@
 .movie-details-container {
   display: flex;
   width: 100%;
-  height: 50%;
+  height: 40%;
 }
 
 .poster-img {
   height: 100%;
-  width: 30%;
+  width: 25%;
 }
 
 .movie-details {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 70%;
+  width: 75%;
   background-color: rgb(192, 197, 202);
   padding: 0 20px 0 20px;
 }

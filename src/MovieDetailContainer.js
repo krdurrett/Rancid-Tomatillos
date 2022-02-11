@@ -8,17 +8,17 @@ class MovieDetailContainer extends Component {
     this.state = {
       movieId: this.props.movieId,
       selectedMovie: {
-        // id: 0, 
-        // poster_path: '',
-        // backdrop_path: '',
-        // release_date: '', 
-        // overview: '', 
-        // average_rating: 0,
-        // genres: [], 
-        // budget: 0, 
-        // revenue: 0, 
-        // runtime: 0, 
-        // tagline: '' 
+        id: 0, 
+        poster_path: '',
+        backdrop_path: '',
+        release_date: '', 
+        overview: '', 
+        average_rating: 0,
+        genres: [], 
+        budget: 0, 
+        revenue: 0, 
+        runtime: 0, 
+        tagline: '' 
       }, 
       previews: [],
       error: false,
@@ -57,7 +57,7 @@ class MovieDetailContainer extends Component {
             <h1>Selected movie</h1>
           </div>
           <div className='movie-detail'>
-            <MovieDetail details={this.state.selectedMovie}/>
+            <MovieDetail details={this.state.selectedMovie} previews={this.state.previews}/>
           </div>
         </section>
       )

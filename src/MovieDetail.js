@@ -2,14 +2,15 @@ import React from 'react'
 import ReactPlayer from 'react-player/youtube'  
 import './MovieDetail.css'
 
-const MovieDetail = ({ details }) => {
-
+const MovieDetail = ({ details, previews }) => {
+  
   let genres = details.genres.join(',');
   let rating = Math.round(details.average_rating * 100) / 100
   let releaseDate = details.release_date.slice(5, 10).concat(`-${details.release_date.slice(0, 4)}`)
   let budget = details.budget.toLocaleString()
   let revenue = details.revenue.toLocaleString()
-
+  let previewURL = `https://www.youtube.com/watch?v=${previews[0].key}`
+  console.log(previewURL)
   return (
     <section className='movie-details-section'>
       <div className='background-img-container'>

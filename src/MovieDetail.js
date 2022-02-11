@@ -64,7 +64,8 @@ class MovieDetail extends Component {
       return (
         <section className='movie-details-section'>
           <div className='background-img-container'>
-            <ReactPlayer className='player' url={`https://www.youtube.com/watch?v=${this.state.previews[0].key}`} controls={true} light={this.state.selectedMovie.backdrop_path} width='' height='' />
+            {this.state.previews.length === 0 ? <img className='background-img' src={this.state.selectedMovie.backdrop_path} /> : 
+            <ReactPlayer className='player' url={`https://www.youtube.com/watch?v=${this.state.previews[0].key}`} controls={true} light={this.state.selectedMovie.backdrop_path} width='' height='' /> }
           </div>
           <div className='movie-details-container'>
             <img className='poster-img' src={this.state.selectedMovie.poster_path} />

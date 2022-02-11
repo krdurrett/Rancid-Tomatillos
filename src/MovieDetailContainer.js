@@ -8,18 +8,19 @@ class MovieDetailContainer extends Component {
     this.state = {
       movieId: this.props.movieId,
       selectedMovie: {
-        id: 0, 
-        poster_path: '',
-        backdrop_path: '',
-        release_date: '', 
-        overview: '', 
-        average_rating: 0,
-        genres: [], 
-        budget: 0, 
-        revenue: 0, 
-        runtime: 0, 
-        tagline: '' 
+        // id: 0, 
+        // poster_path: '',
+        // backdrop_path: '',
+        // release_date: '', 
+        // overview: '', 
+        // average_rating: 0,
+        // genres: [], 
+        // budget: 0, 
+        // revenue: 0, 
+        // runtime: 0, 
+        // tagline: '' 
       }, 
+      previews: [],
       error: false,
       isLoading: true
     }
@@ -27,6 +28,8 @@ class MovieDetailContainer extends Component {
 
   componentDidMount = () => {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.state.movieId}`)
+      .then(response => this.handleResponse(response))
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.state.movieId}/videos`)
       .then(response => this.handleResponse(response))
   }
 
@@ -36,7 +39,12 @@ class MovieDetailContainer extends Component {
     } else {
       Promise.resolve(response)
         .then(response => response.json())
-        .then(data => this.setState({ selectedMovie: data.movie, isLoading: false}))
+        .then(data => {
+          if (data.movie) {
+            this.setState({ selectedMovie: data.movie, isLoading: false})
+          } else if (data.videos) {
+            this.setState({ previews: data.videos, isLoading: false})
+          }})
         .catch(() => this.setState({ error: true}))
     }
   }

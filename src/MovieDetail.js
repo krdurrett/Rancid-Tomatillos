@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactPlayer from 'react-player/youtube'  
 import './MovieDetail.css'
 
 const MovieDetail = ({ details }) => {
@@ -14,6 +15,7 @@ const MovieDetail = ({ details }) => {
       <div className='background-img-container'>
         <img className='background-img' src={details.backdrop_path}/> 
       </div>
+      {/* <ReactPlayer /> */}
       <div className='movie-details-container'>
         <img className='poster-img' src={details.poster_path} />
         <div className='movie-details'>
@@ -33,8 +35,7 @@ const MovieDetail = ({ details }) => {
             <p>Release Date: {releaseDate}</p>
           </div>
         </div>
-      </div>
-      
+      </div>  
     </section>  
   )
 }

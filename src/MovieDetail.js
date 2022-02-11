@@ -1,4 +1,3 @@
-import { render } from '@testing-library/react'
 import React, { Component } from 'react'
 import ReactPlayer from 'react-player/youtube'  
 import './MovieDetail.css'
@@ -7,51 +6,100 @@ class MovieDetail extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      genres: this.props.details.genres.join(','),
-      rating: Math.round(this.props.details.average_rating * 100) / 100,
-      releaseDate: this.props.details.release_date.slice(5, 10).concat(`-${this.props.details.release_date.slice(0, 4)}`),
-      budget: this.props.details.budget.toLocaleString(),
-      revenue: this.props.details.revenue.toLocaleString(),
-      previewURL: `https://www.youtube.com/watch?v=${this.props.previews[0].key}`,
+      movieId: this.props.movieId,
+      selectedMovie: {
+        id: 0, 
+        title: '',
+        poster_path: '',
+        backdrop_path: '',
+        release_date: '', 
+        overview: '', 
+        average_rating: 0,
+        genres: [], 
+        budget: 0, 
+        revenue: 0, 
+        runtime: 0, 
+        tagline: '' 
+      }, 
+      previews: [],
+      error: false,
+      isLoading: true,
       control: true,
       width: '',
       height: ''
     }
   }
-  
-  render() {
-    return (
-      <section className='movie-details-section'>
-        <div className='background-img-container'>
-          {/* <img className='background-img' src={details.backdrop_path}/>  */}
-          <ReactPlayer className='player' url={this.state.previewURL} controls={true} light={this.props.details.backdrop_path} width='' height='' />
-        </div>
-        <div className='movie-details-container'>
-          <img className='poster-img' src={this.props.details.poster_path} />
-          <div className='movie-details'>
-            <div className='movie-title-div'>
-              <h3>{this.props.details.title}</h3>   
-              <h3>Rating: {this.state.rating}</h3>
-              {!!this.props.details.runtime && <h3>Runtime: {this.props.details.runtime} minutes</h3>} 
-            </div>
-            <div className='overview-div'>
-              <p>{this.props.details.tagline}</p>
-              <p>{this.props.details.overview}</p>
-              {!!this.props.details.genres.length && <p>Genres: {this.state.genres}</p>}
-            </div>
-            <div className='budget-div'>
-              {!!this.props.details.budget && <p>Budget: ${this.state.budget}</p>}
-              {!!this.props.details.revenue && <p>Total Revenue: ${this.state.revenue}</p>}
-              <p>Release Date: {this.state.releaseDate}</p>
-            </div>
-          </div>
-        </div>  
-      </section>  
-    )
+
+  componentDidMount = () => {
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.state.movieId}`)
+      .then(response => this.handleResponse(response))
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.state.movieId}/videos`)
+      .then(response => this.handleResponse(response))
   }
-  
+
+  handleResponse = response => {
+    if (!response.ok) {
+      this.setState({ error: true})
+    } else {
+      Promise.resolve(response)
+        .then(response => response.json())
+        .then(data => {
+          if (data.movie) {
+            this.setState({ selectedMovie: data.movie, isLoading: false})
+          } else if (data.videos) {
+            this.setState({ previews: data.videos, isLoading: false})
+          }})
+        .catch(() => this.setState({ error: true}))
+    }
+  }
+
+  render() {
+    let genres = this.state.selectedMovie.genres.join(',')
+    let rating = Math.round(this.state.selectedMovie.average_rating * 100) / 100
+    let releaseDate = this.state.selectedMovie.release_date.slice(5, 10).concat(`-${this.state.selectedMovie.release_date.slice(0, 4)}`)
+    let budget = this.state.selectedMovie.budget.toLocaleString()
+    let revenue = this.state.selectedMovie.revenue.toLocaleString()
+
+    if (!this.state.error && !this.state.isLoading) {
+      return (
+        <section className='movie-details-section'>
+          <div className='background-img-container'>
+            <ReactPlayer className='player' url={`https://www.youtube.com/watch?v=${this.state.previews[0].key}`} controls={true} light={this.state.selectedMovie.backdrop_path} width='' height='' />
+          </div>
+          <div className='movie-details-container'>
+            <img className='poster-img' src={this.state.selectedMovie.poster_path} />
+            <div className='movie-details'>
+              <div className='movie-title-div'>
+                <h3>{this.state.selectedMovie.title}</h3>   
+                <h3>Rating: {rating}</h3>
+                {!!this.state.selectedMovie.runtime && <h3>Runtime: {this.state.selectedMovie.runtime} minutes</h3>} 
+              </div>
+              <div className='overview-div'>
+                <p>{this.state.selectedMovie.tagline}</p>
+                <p>{this.state.selectedMovie.overview}</p>
+                {!!this.state.selectedMovie.genres.length && <p>Genres: {genres}</p>}
+              </div>
+              <div className='budget-div'>
+                {!!this.state.selectedMovie.budget && <p>Budget: ${budget}</p>}
+                {!!this.state.selectedMovie.revenue && <p>Total Revenue: ${revenue}</p>}
+                <p>Release Date: {releaseDate}</p>
+              </div>
+            </div>
+          </div>  
+        </section>  
+      )
+    }
+    if (this.state.isLoading) {
+      return (
+        <h2>Loading...</h2>
+      )
+    }
+    if (this.state.error) {
+      return ( 
+          <h2>Sorry, there was a problem with our network</h2>
+        )
+    }  
+  }
 }
 
 export default MovieDetail
-
-//details previews

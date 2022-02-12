@@ -61,7 +61,7 @@ class MovieDetail extends Component {
     let revenue = this.state.selectedMovie.revenue.toLocaleString()
     let movieUrl
     if (this.state.previews.length > 0 && this.state.previews[0].site === 'YouTube') {
-      movieUrl = `https://www.youtube.com/watch?v=${this.state.previews[0].key}`
+      movieUrl = this.state.previews.map(preview => `https://www.youtube.com/watch?v=${preview.key}`) 
     } else if (this.state.previews.length > 0 && this.state.previews[0].site === 'Vimeo') {
       movieUrl = `https://vimeo.com/${this.state.previews[0].key}`
     }

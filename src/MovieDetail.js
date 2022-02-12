@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ReactPlayer from 'react-player/youtube'  
+import ReactPlayer from 'react-player/lazy'  
 import './MovieDetail.css'
 
 class MovieDetail extends Component {
@@ -59,13 +59,19 @@ class MovieDetail extends Component {
     let releaseDate = this.state.selectedMovie.release_date.slice(5, 10).concat(`-${this.state.selectedMovie.release_date.slice(0, 4)}`)
     let budget = this.state.selectedMovie.budget.toLocaleString()
     let revenue = this.state.selectedMovie.revenue.toLocaleString()
+    let movieUrl
+    if (this.state.previews.length > 0 && this.state.previews[0].site === 'YouTube') {
+      movieUrl = `https://www.youtube.com/watch?v=${this.state.previews[0].key}`
+    } else if (this.state.previews.length > 0 && this.state.previews[0].site === 'Vimeo') {
+      movieUrl = `https://vimeo.com/${this.state.previews[0].key}`
+    }
 
     if (!this.state.error && !this.state.isLoading) {
       return (
         <section className='movie-details-section'>
           <div className='background-img-container'>
             {this.state.previews.length === 0 ? <img className='background-img' src={this.state.selectedMovie.backdrop_path} /> : 
-            <ReactPlayer className='player' url={`https://www.youtube.com/watch?v=${this.state.previews[0].key}`} controls={true} light={this.state.selectedMovie.backdrop_path} width='' height='' /> }
+            <ReactPlayer className='player' url={movieUrl} controls={true} light={this.state.selectedMovie.backdrop_path} width='' height='' /> }
           </div>
           <div className='movie-details-container'>
             <img className='poster-img' src={this.state.selectedMovie.poster_path} />

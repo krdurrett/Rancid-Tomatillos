@@ -1,4 +1,3 @@
-
 describe('Rancid tomatillo main page load', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000');

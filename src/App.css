@@ -9,6 +9,14 @@
   background-color: #1f356d;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+
+.search-bar {
+  margin-right: 20px;
+  height: 30%;
+  width: 25%;
+  font-size: 20px;
 }
 
 .home-button {

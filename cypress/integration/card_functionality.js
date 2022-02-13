@@ -3,7 +3,7 @@ describe('Card functionality', () => {
     cy.visit('http://localhost:3000');
   });
   it('Should be able to click on a movie card to view movie details', () => {
-    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies',
+    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/619592',
       {
         statusCode: 201,
         body: {
@@ -24,7 +24,7 @@ describe('Card functionality', () => {
       .url().should('include', '/694919')
   });
    it('Should show Loading... while movie details load', () => {
-    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies',
+    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/619592',
       {
         statusCode: 201,
         body: {
@@ -42,4 +42,13 @@ describe('Card functionality', () => {
           .get('.movie-detail')
             .contains('Loading...')
   });
+
+  it('Should be able to display error message when network fails', () => {
+    cy.intercept('GET','https://rancid-tomatillos.herokuapp.com/api/v2/movies/619592', {
+      statusCode: 500
+    })
+      .visit('http://localhost:3000/619592')
+        .get('h2')
+           .contains('Sorry, there was a problem with our network')
+  })
 });

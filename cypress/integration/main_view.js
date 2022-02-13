@@ -13,4 +13,12 @@ describe('Rancid tomatillo main page load', () => {
         .should('have.attr', 'src').should('include', "https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg")
       .url().should('include', '/')
   });
+
+  it('Should see error message if there is a network error', () => {
+    cy.intercept('GET','https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+      statusCode: 500
+    })
+    .get('h2')
+    .contains('Sorry, there was a problem with our network')
+  })
 });

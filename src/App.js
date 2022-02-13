@@ -12,13 +12,14 @@ class App extends Component {
       allMoviesData: [],
       error: false,
       searchValue: '', 
-      filteredMovies: []
+      filteredMovies: [],
+      isLoading: true
     }
   }
 
   componentDidMount = () => {
       allMovies()
-      .then(data => this.setState({ allMoviesData: data.movies, filteredMovies: data.movies ,error: false}))
+      .then(data => this.setState({ allMoviesData: data.movies, filteredMovies: data.movies ,error: false, isLoading: false}))
       .catch(() => this.setState({ error: true}))
   }
 
@@ -28,14 +29,18 @@ class App extends Component {
     const value = target.value
     const name = target.name
     this.setState({ [name]: value})
-    if(!this.state.searchValue) {
+    if(value === '') {
       this.setState({filteredMovies: this.state.allMoviesData})
     }
-    if(this.state.searchValue) {
+    if(value) {
       let filterMovies = this.state.allMoviesData.filter(movie => {
         return movie.title.toLowerCase().includes(this.state.searchValue.toLowerCase())
       })
-      this.setState({filteredMovies: filterMovies})
+      if(filterMovies.length === 0) {
+        this.setState({filteredMovies: []})
+      } else {
+        this.setState({filteredMovies: filterMovies})
+      }
     }
   }
 
@@ -45,10 +50,20 @@ class App extends Component {
       <main className='main'>
         <nav className='nav-bar'>
           <Link to='/' className='home-button'>🍿Rancid Tomatillos</Link>
-          <input name="searchValue" type="text" className="search-bar" placeholder="Search Movie Titles" onChange={event => this.movieSearch(event)} value={this.state.searchValue} />
+            <input name="searchValue" type="text" className="search-bar" placeholder="Search Movie Titles" onChange={event => this.movieSearch(event)} value={this.state.searchValue} />
         </nav>
         <Route exact path='/' render={() => {
-          return !this.state.error ? <AllMovieContainer movies={this.state.filteredMovies}/> : <h2>Sorry, there was a problem with our network</h2> }} />
+          if(!this.state.error && this.state.filteredMovies.length > 0 && !this.state.isLoading) {
+            return <AllMovieContainer movies={this.state.filteredMovies}/>
+          } else if(this.state.error) {
+            return <h2>Sorry, there was a problem with our network</h2>
+          } else if(this.state.filteredMovies.length === 0 && !this.state.isLoading) {
+            return <h2>Sorry no movies found from your search criteria</h2>
+          } else if(this.state.isLoading) {
+            return <h2>Loading...</h2>
+          }
+          }}/>
+
         <Route exact path='/:id' render={({ match }) => 
           {const movieId = match.params.id
           return <MovieDetailContainer movieId={movieId} />

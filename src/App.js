@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import AllMovieContainer from './AllMovieContainer'
 import MovieDetailContainer from './MovieDetailContainer'
 import { Route, Link } from 'react-router-dom'
+import {allMovies} from './api-calls'
 import './App.css'
 
 class App extends Component {
@@ -14,8 +15,7 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-      .then(response => response.json())
+      allMovies()
       .then(data => this.setState({ allMoviesData: data.movies, error: false}))
       .catch(() => this.setState({ error: true}))
   }

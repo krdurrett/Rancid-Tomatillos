@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import ReactPlayer from 'react-player/lazy'  
+import ReactPlayer from 'react-player/lazy'
+import {singleMovie} from './api-calls'  
+import {moviePreviews} from './api-calls'
 import './MovieDetail.css'
 
 class MovieDetail extends Component {
@@ -31,9 +33,9 @@ class MovieDetail extends Component {
   }
 
   componentDidMount = () => {
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.state.movieId}`)
+    singleMovie(this.state.movieId)
       .then(response => this.handleResponse(response))
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.state.movieId}/videos`)
+    moviePreviews(this.state.movieId)
       .then(response => this.handleResponse(response))
   }
 

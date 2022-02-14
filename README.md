@@ -8,7 +8,7 @@
   - [Install + Setup](#install-and-setup)
   - [Contributors](#contributors)
   - [Wins](#wins)
-  - [Challenges + Improvements](#challenges)
+  - [Challenges + Improvements](#challenges-and-improvements)
   - [Project Specs](#project-specs)
 
 ## Abstract
@@ -66,7 +66,7 @@ Users can search for specific movies and click on a movie to view a movies detai
 - Completed our CYOA
 - Learned how to implement React Player package
 
-## Challenges + Improvements
+## Challenges and Improvements
 - Implementing the search to be up to date with state
 - Better page stylying using CSS
 

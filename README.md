@@ -5,7 +5,7 @@
   - [Abstract](#abstract)
   - [Technologies](#technologies)
   - [Illustrations](#illustrations)
-  - [Install + Setup](#install-+-setup)
+  - [Install + Setup](#install-and-setup)
   - [Contributors](#contributors)
   - [Wins](#wins)
   - [Challenges + Improvements](#challenges)
@@ -47,7 +47,7 @@ Users can search for specific movies and click on a movie to view a movies detai
 
 ![Preview-view](https://media.giphy.com/media/3h0S7hYfmcxuE6DzGS/giphy.gif)
 
-## Install + Setup
+## Install and Setup
 1. Clone this repository
 2. `cd` into the repo from your terminal
 3. Run `npm start` in your terminal to start the app in your browser

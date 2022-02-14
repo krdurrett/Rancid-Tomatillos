@@ -12,8 +12,8 @@
   - [Project Specs](#project-specs)
 
 ## Abstract
-	  Rancid Tomatillos is an application that can be used to look for details about specific movies. 
-    Users can search for specific movies and click on a movie to view a movies details and view previews.
+Rancid Tomatillos is an application that can be used to look for details about specific movies. 
+Users can search for specific movies and click on a movie to view a movies details and view previews.
   
 
 ## Technologies
@@ -21,10 +21,10 @@
   - Javascript
   - CSS
   - Cypress
-	- NPM ReactPlayer Package
-	- API
-	- JSX
-	- React Router
+  - NPM ReactPlayer Package
+  - API
+  - JSX
+  - React Router
 
 
 
@@ -61,14 +61,14 @@
   - [Oscar Cortez](https://github.com/oacortez)
 
 ## Wins
-	  - Learned how to create a React app using router 
-	  - Learned how to utilized E2E testing with Cypress 
-    - Completed our CYOA
-    - Learned how to implement React Player package
+- Learned how to create a React app using router 
+- Learned how to utilized E2E testing with Cypress 
+- Completed our CYOA
+- Learned how to implement React Player package
 
 ## Challenges + Improvements
-	- Implementing the search to be up to date with state
-	- Better page stylying using CSS
+- Implementing the search to be up to date with state
+- Better page stylying using CSS
 
 ## Project Specs
   - The project spec & rubric can be found [here](https://frontend.turing.edu/projects/module-3/rancid-tomatillos-v3.html)

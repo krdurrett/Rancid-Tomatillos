@@ -48,10 +48,6 @@ class App extends Component {
   render() {
     return (
       <main className='main'>
-        {/* <nav className='nav-bar'>
-          <Link to='/' className='home-button'>🍿Rancid Tomatillos</Link>
-            <input name="searchValue" type="text" className="search-bar" placeholder="Search Movie Titles" onChange={event => this.movieSearch(event)} value={this.state.searchValue} />
-        </nav> */}
         <Route exact path='/' render={() => {
           if(!this.state.error && this.state.filteredMovies.length > 0 && !this.state.isLoading) {
             return <AllMovieContainer movies={this.state.filteredMovies} onChange={this.movieSearch} value={this.state.searchValue}/>

@@ -16,17 +16,19 @@ const AllMovieContainer = ({ movies, onChange, value }) => {
     })
 
     return (
-        <section className='all-movie-container'>
-            <nav className='nav-bar'>
+        <section className='all-movie-page'>
+            <nav className='nav-bar-all-movie'>
                 <Link to='/' className='home-button'>🍿Rancid Tomatillos</Link>
                 <input name="searchValue" type="text" className="search-bar" placeholder="Search Movie Titles" onChange={(event) => onChange(event)} value={value} />
-             </nav>
-            <div className='title'>
-                <h1>All Movies</h1>
-            </div>
-            <div className='movie-cards'>
-                {allMovies}
-            </div>
+            </nav>
+            <section className='all-movie-container'>
+                <div className='title'>
+                    <h1>All Movies</h1>
+                </div>
+                <div className='movie-cards'>
+                    {allMovies}
+                </div>
+            </section>
         </section>
     )
 }

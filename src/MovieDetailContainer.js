@@ -13,16 +13,18 @@ class MovieDetailContainer extends Component {
 
   render() {
     return (
-      <section className='movie-detail-container'>
-        <nav className='nav-bar'>
+      <section className='movie-detail-page'>
+        <nav className='nav-bar-movie-detail'>
           <Link to='/' className='home-button'>🍿Rancid Tomatillos</Link>
         </nav>
-        <div className='title'>
-          <h1>Selected movie</h1>
-        </div>
-        <div className='movie-detail'>
-          <MovieDetail movieId={this.state.movieId} />
-        </div>
+        <section className='movie-detail-container'>
+          <div className='title'>
+            <h1>Selected movie</h1>
+          </div>
+          <div className='movie-detail'>
+            <MovieDetail movieId={this.state.movieId} />
+          </div>
+        </section>
       </section>
     )
   } 

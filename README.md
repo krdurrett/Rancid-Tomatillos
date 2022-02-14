@@ -5,7 +5,7 @@
   - [Abstract](#abstract)
   - [Technologies](#technologies)
   - [Illustrations](#illustrations)
-  - [Install + Setup](#install)
+  - [Install + Setup](#install-+-setup)
   - [Contributors](#contributors)
   - [Wins](#wins)
   - [Challenges + Improvements](#challenges)

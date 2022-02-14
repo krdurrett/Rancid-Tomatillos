@@ -5,10 +5,10 @@
   - [Abstract](#abstract)
   - [Technologies](#technologies)
   - [Illustrations](#illustrations)
-  - [Install + Setup](#install + setup)
+  - [Install + Setup](#install)
   - [Contributors](#contributors)
   - [Wins](#wins)
-  - [Challenges + Improvements](#challenges + improvements)
+  - [Challenges + Improvements](#challenges)
   - [Project Specs](#project-specs)
 
 ## Abstract

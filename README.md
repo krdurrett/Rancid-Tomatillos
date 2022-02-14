@@ -48,7 +48,7 @@ Users can search for specific movies and click on a movie to view a movies detai
 ![Preview-view](https://media.giphy.com/media/3h0S7hYfmcxuE6DzGS/giphy.gif)
 
 ## Install + Setup
-1. Clone this [repository](git@github.com:krdurrett/Rancid-Tomatillos.git)
+1. Clone this ![repository](git@github.com:krdurrett/Rancid-Tomatillos.git)
 2. `cd` into the repo from your terminal
 3. Run `npm start` in your terminal to start the app in your browser
 4. Open `http://localhost:3000` to view it in your browser

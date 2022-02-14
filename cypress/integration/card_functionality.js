@@ -19,8 +19,6 @@ describe('Card functionality', () => {
       .get('.movie-cards').click(100, 20)
         .get('.movie-detail-container')
           .contains('Selected movie')
-        .get('.movie-detail')
-          .contains('Loading...')
       .url().should('include', '/694919')
   });
    it('Should show Loading... while movie details load', () => {

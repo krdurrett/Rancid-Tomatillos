@@ -48,13 +48,13 @@ class App extends Component {
   render() {
     return (
       <main className='main'>
-        <nav className='nav-bar'>
+        {/* <nav className='nav-bar'>
           <Link to='/' className='home-button'>🍿Rancid Tomatillos</Link>
             <input name="searchValue" type="text" className="search-bar" placeholder="Search Movie Titles" onChange={event => this.movieSearch(event)} value={this.state.searchValue} />
-        </nav>
+        </nav> */}
         <Route exact path='/' render={() => {
           if(!this.state.error && this.state.filteredMovies.length > 0 && !this.state.isLoading) {
-            return <AllMovieContainer movies={this.state.filteredMovies}/>
+            return <AllMovieContainer movies={this.state.filteredMovies} onChange={this.movieSearch} value={this.state.searchValue}/>
           } else if(this.state.error) {
             return <h2>Sorry, there was a problem with our network</h2>
           } else if(this.state.filteredMovies.length === 0 && !this.state.isLoading) {

@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# Rancid Tomatillos
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Table of Contents
+  - [Abstract](#abstract)
+  - [Technologies](#technologies)
+  - [Illustrations](#illustrations)
+  - [Install + Setup](#set-up)
+  - [Contributors](#contributors)
+	- [Wins](#wins)
+	- [Challenges + Improvements](#challenges-+-Improvements)
+  - [Project Specs](#project-specs)
 
-In the project directory, you can run:
+## Abstract
+	  Rancid Tomatillos is an application that can be used to look for details about specific movies. 
+    Users can search for specific movies and click on a movie to view a movies details and view previews.
+  
 
-### `npm start`
+## Technologies
+  - React
+  - Javascript
+  - CSS
+  - Cypress
+	- NPM ReactPlayer Package
+	- API
+	- JSX
+	- React Router
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Illustrations
 
-### `npm run build`
+- When page loads user can scroll thru all movies.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Landing-page-view](https://media.giphy.com/media/cu4sjt9hg9tXbeFARb/giphy.gif)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- When a user clicks on a movie they can view its details. User can click on home button to return to the main screen.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Movie-detail-view](https://media.giphy.com/media/jEiuKtBwcBjUt4HD0d/giphy.gif)
 
-### `npm run eject`
+- When a user types in the search bar they are able to find the specific movie the user is looking for.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![Search](https://media.giphy.com/media/MkMSB16rL5nqqm7LEH/giphy.gif)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- User can view the movies previews.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![Preview-view](https://media.giphy.com/media/3h0S7hYfmcxuE6DzGS/giphy.gif)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Install + Setup
+1. Clone this [repository](git@github.com:krdurrett/Rancid-Tomatillos.git)
+2. `cd` into the repo from your terminal
+3. Run `npm start` in your terminal to start the app in your browser
+4. Open `http://localhost:3000` to view it in your browser
+  
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Contributors
+  - [Kayla Durret](https://github.com/krdurrett)
+  - [Oscar Cortez](https://github.com/oacortez)
 
-### Code Splitting
+## Wins
+	  - Learned how to create a React app using router 
+	  - Learned how to utilized E2E testing with Cypress 
+    - Completed our CYOA
+    - Learned how to implement React Player package
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Challenges + Improvements
+	- Implementing the search to be up to date with state
+	- Better page stylying using CSS
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Project Specs
+  - The project spec & rubric can be found [here](https://frontend.turing.edu/projects/module-3/rancid-tomatillos-v3.html)

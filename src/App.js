@@ -46,12 +46,12 @@ class App extends Component {
   render() {
     return (
       <main className='main'>
-        <Route exact path='/' render={() => {
-            return <AllMovieContainer isLoading={this.state.isLoading} filteredMovies={this.state.filteredMovies} error={this.state.error} movies={this.state.filteredMovies} onChange={this.movieSearch} value={this.state.searchValue}/>
-          }}/>
         <Route exact path='/:id' render={({ match }) => 
-          {const movieId = match.params.id
-          return <MovieDetailContainer movieId={movieId} />
+        {const movieId = match.params.id
+        return <MovieDetailContainer movieId={movieId} />
+        }}/>
+        <Route exact path='/' render={() => {
+        return <AllMovieContainer isLoading={this.state.isLoading} filteredMovies={this.state.filteredMovies} error={this.state.error} movies={this.state.filteredMovies} onChange={this.movieSearch} value={this.state.searchValue}/>
         }}/>
       </main>
     )

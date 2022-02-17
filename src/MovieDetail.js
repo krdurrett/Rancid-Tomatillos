@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ReactPlayer from 'react-player/lazy'
+import NotFound from './NotFound'
 import {singleMovie} from './api-calls'  
 import {moviePreviews} from './api-calls'
 import './MovieDetail.css'
@@ -41,7 +42,7 @@ class MovieDetail extends Component {
 
   handleResponse = response => {
     if (!response.ok) {
-      this.setState({ error: true})
+      this.setState({ isLoading: false, error: true})
     } else {
       Promise.resolve(response)
         .then(response => response.json())
@@ -101,12 +102,12 @@ class MovieDetail extends Component {
     }
     if (this.state.isLoading) {
       return (
-        <h2>Loading...</h2>
+       <h2>Loading...</h2>
       )
     }
     if (this.state.error) {
       return ( 
-          <h2>Sorry, there was a problem with our network</h2>
+          <NotFound />
         )
     }  
   }
